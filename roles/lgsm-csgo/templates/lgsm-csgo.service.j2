@@ -1,0 +1,20 @@
+# {{ ansible_managed }}
+[Unit]
+Description=LGSM Counter Strike: Global Offensive
+Documentation=https://linuxgsm.com/lgsm/csgoserver/
+After=network-online.target
+
+[Service]
+Type=forking
+RemainAfterExit=yes
+WorkingDirectory=/home/{{ lgsm_user }}
+User={{ lgsm_user }}
+Group={{ lgsm_group }}
+ExecStartPre=/home/{{ lgsm_user }}/csgoserver update
+ExecStart=/home/{{ lgsm_user }}/csgoserver start
+ExecStop=/home/{{ lgsm_user }}/csgoserver stop
+TimeoutStartSec=10m
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,5 @@
+- name: restart csgo
+  service:
+    name: lgsm-csgo.service
+    state: restarted
+  become: yes

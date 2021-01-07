@@ -1,0 +1,15 @@
+// {{ ansible_managed }}
+hostname "{{ lgsm_csgo_hostname }}"
+
+rcon_password "{{ lgsm_csgo_rconpassword }}"
+sv_password "{{ lgsm_csgo_sv_password }}"    // server password
+
+sv_setsteamaccount "{{ lgsm_csgo_gslt }}"    // allow server to be publically discoverable
+sv_lan 0                                     // disable LAN mode
+sv_cheats 0                                  // disable cheats
+
+sv_pure 1                                    // enable pure server
+sv_pure_kick_clients 1                       // kick impure clients
+
+host_players_show 2                          // show full playercount
+host_info_show 2                             // show host info

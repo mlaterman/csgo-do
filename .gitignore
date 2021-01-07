@@ -1,0 +1,15 @@
+# Generated file
+hosts
+venv/
+
+# ansible
+.retry
+
+# terraform
+.terraform
+.tf*
+terraform.plan
+
+# other
+*.swp
+.env
