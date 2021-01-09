@@ -51,65 +51,65 @@ resource "digitalocean_firewall" "csgo" {
   }
 
   outbound_rule {
-    protocol = "udp"
-    port_range = "27015-27030"
+    protocol              = "udp"
+    port_range            = "27015-27030"
     destination_addresses = ["0.0.0.0/0", "::/0"]
   }
 
   outbound_rule {
-    protocol = "tcp"
-    port_range = "27015-27030"
+    protocol              = "tcp"
+    port_range            = "27015-27030"
     destination_addresses = ["0.0.0.0/0", "::/0"]
   }
 
   # game server ports
   outbound_rule {
-    protocol = "udp"
-    port_range = "27005"
+    protocol              = "udp"
+    port_range            = "27005"
     destination_addresses = ["0.0.0.0/0", "::/0"]
   }
 
   inbound_rule {
-    protocol = "udp"
-    port_range = "27015"
+    protocol         = "udp"
+    port_range       = "27015"
     source_addresses = ["0.0.0.0/0", "::/0"]
   }
 
   inbound_rule {
-    protocol = "udp"
-    port_range = "27020"
+    protocol         = "udp"
+    port_range       = "27020"
     source_addresses = ["0.0.0.0/0", "::/0"]
   }
 
 
   inbound_rule {
-    protocol = "tcp"
-    port_range = "27015"
+    protocol         = "tcp"
+    port_range       = "27015"
     source_addresses = ["0.0.0.0/0", "::/0"]
   }
 
   # p2p & voice chat
   inbound_rule {
-    protocol = "udp"
-    port_range = "3478"
+    protocol         = "udp"
+    port_range       = "3478"
     source_addresses = ["0.0.0.0/0", "::/0"]
   }
 
   inbound_rule {
-    protocol = "udp"
-    port_range = "4379-4380"
+    protocol         = "udp"
+    port_range       = "4379-4380"
     source_addresses = ["0.0.0.0/0", "::/0"]
   }
 
   outbound_rule {
-    protocol = "udp"
-    port_range = "3478"
+    protocol              = "udp"
+    port_range            = "3478"
     destination_addresses = ["0.0.0.0/0", "::/0"]
   }
 
   outbound_rule {
-    protocol = "udp"
-    port_range = "4379-4380"
+    protocol              = "udp"
+    port_range            = "4379-4380"
     destination_addresses = ["0.0.0.0/0", "::/0"]
   }
 
