@@ -29,6 +29,8 @@ Project used to deploy an configure Counter Strike Global offensive on a Digital
 | CSGO_RCONPASSWORD | CS:GO's remote console password |
 | CSGO_SV_PASSWORD | CS:GO's server password, set to empty for a public server |
 | CSGO_HOSTNAME | CS:GO server hostname (in the server browser) |
+| ROOT_ADMIN_ID| steamID of the user who will get root admin permissions in SourceMod in the server |
+| ADMIN_LIST | comma seperated values list of steamIDs for additional admins |
 
 ## Why GSLT instead of steamCMD
 

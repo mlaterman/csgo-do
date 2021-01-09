@@ -91,11 +91,18 @@ setup_env () {
 	read -p "Enter server password (blank for no password): " serverpass
 	read "Enter the server name: " servername
 
+	echo "Use to lookup values for steamID: https://steamidfinder.com/"
+	echo "Expect IDs as \"STEAM_0:0:11101\""
+	read "Enter the steamID for the root admin: " root
+	read "Enter the steamIDs (comma seperated) for other admins: " admins
+
 	echo "export DIGITALOCEAN_TOKEN=\"${do_token}\""  > .env
 	echo "export CSGO_GSLT=\"${gslt}\""              >> .env
 	echo "export CSGO_RCONPASSWORD=\"${rcon}\""      >> .env
 	echo "export CSGO_SV_PASSWORD=\"${serverpass}\"" >> .env
 	echo "export CSGO_HOSTNAME=\"${servername}\""    >> .env
+	echo "export ROOT_ADMIN_ID=\"${root}\""          >> .env
+	echo "export ADMIN_LIST=\"${admins}\""           >> .env
 }
 
 echo "Checking environment"

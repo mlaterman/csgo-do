@@ -121,6 +121,41 @@
   become: yes
   notify: restart csgo
 
+- name: Install metamod source
+  command: ./csgoserver mi
+  args:
+    chdir: "/home/{{ lgsm_user }}/"
+    creates: "/home/{{ lgsm_user }}/serverfiles/csgo/addons/metamod.vdf"
+    stdin: metamodsource
+  become: yes
+  become_user: "{{ lgsm_user }}"
+  notify: restart csgo
+
+- name: Install sourcemod
+  command: ./csgoserver mi
+  args:
+    chdir: "/home/{{ lgsm_user }}/"
+    creates: "/home/{{ lgsm_user }}/serverfiles/csgo/addons/metamod/sourcemod.vdf"
+    stdin: sourcemod
+  become: yes
+  notify: restart csgo
+
+- name: Add root admin
+  lineinfile:
+    path: "/home/{{ lgsm_user }}/serverfiles/csgo/addons/sourcemod/configs/admins_simple.ini"
+    line: "\"{{ lgsm_csgo_sourcemod_root_admin }}\" \"z\""
+  become: yes
+  become_user: "{{ lgsm_user }}"
+
+- name: Add other admins
+  lineinfile:
+    path: "/home/{{ lgsm_user }}/serverfiles/csgo/addons/sourcemod/configs/admins_simple.ini"
+    line: "\"{{ item }}\" \"{{ lgsm_csgo_sourcemod_admins_permissions }}\""
+  loop: "{{ lgsm_csgo_sourcemod_admins.split(',') }}"
+  when: lgsm_csgo_sourcemod_admins|length > 0
+  become: yes
+  become_user: "{{ lgsm_user }}"
+
 - name: enable csgo server
   systemd:
     name: lgsm-csgo.service

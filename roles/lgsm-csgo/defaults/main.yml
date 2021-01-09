@@ -5,3 +5,8 @@ lgsm_csgo_hostname:
 lgsm_csgo_rconpassword:
 lgsm_csgo_sv_password:
 lgsm_csgo_glst:
+
+lgsm_csgo_sourcemod_root_admin:
+lgsm_csgo_sourcemod_admins:
+lgsm_csgo_sourcemod_admins_permissions: "abcdeghik"
+

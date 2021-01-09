@@ -19,6 +19,6 @@ hosts:
 	bash genhosts.sh
 
 ansible: hosts
-	ansible-playbook -i hosts --extra-vars "lgsm_csgo_hostname=\"${CSGO_HOSTNAME}\"" --extra-vars "lgsm_csgo_gslt=${CSGO_GSLT}" --extra-vars "lgsm_csgo_rconpassword=${CSGO_RCONPASSWORD}" --extra-vars "lgsm_csgo_sv_password=${CSGO_SV_PASSWORD}" lgsm-csgo.yml
+	ansible-playbook -i hosts --extra-vars "lgsm_csgo_hostname=\"${CSGO_HOSTNAME}\"" --extra-vars "lgsm_csgo_gslt=${CSGO_GSLT}" --extra-vars "lgsm_csgo_rconpassword=${CSGO_RCONPASSWORD}" --extra-vars "lgsm_csgo_sv_password=${CSGO_SV_PASSWORD}" --extra-vars "lgsm_csgo_sourcemod_root_admin=\"${ROOT_ADMIN_ID}\"" --extra-vars "lgsm_csgo_sourcemod_admins=\"${ADMIN_LIST}\"" lgsm-csgo.yml
 
 .PHONY: default configure plan apply pip hosts ansible
